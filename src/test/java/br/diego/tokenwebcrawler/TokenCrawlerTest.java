@@ -1,6 +1,7 @@
 package br.diego.tokenwebcrawler;
 
-import static org.junit.Assert.assertEquals;
+import static org.hamcrest.CoreMatchers.equalTo;
+import static org.hamcrest.MatcherAssert.assertThat;
 
 import java.io.IOException;
 import java.net.MalformedURLException;
@@ -11,24 +12,18 @@ import org.junit.Test;
 
 import com.gargoylesoftware.htmlunit.FailingHttpStatusCodeException;
 
-import tokenwebcrawler.PaginaCalculo;
-import tokenwebcrawler.PaginaDesafioAgesoft;
-
 public class TokenCrawlerTest {
 
 	@Test
-	public void dadoUmaOperacaoMatematicaQuandoResolver1000OperacoesEntaoExibirOValorToken() throws FailingHttpStatusCodeException, MalformedURLException, IOException, NumberFormatException, ScriptException {
+	public void dadoUmaOperacaoMatematicaQuandoResolver1000OperacoesEntaoExtrairValorToken() throws FailingHttpStatusCodeException, MalformedURLException, IOException, NumberFormatException, ScriptException {
+
+		int paginaDesejada = 100;
 
 		PaginaDesafioAgesoft desafio = new PaginaDesafioAgesoft();
+		PaginaCalculo paginaCalculo = desafio.comecar().resolverQuestoesAteAPagina(paginaDesejada);
 		
-		int numeroPagina = 100;
-		PaginaCalculo paginaCalculo = desafio.comecar().resolverQuestoesAteAPagina(numeroPagina);
-		
-		assertEquals(numeroPagina, paginaCalculo.getNumero());
-		
-		String token = paginaCalculo.getToken();
-
-		System.out.printf("token = %s pagina nº = %s", token, paginaCalculo.getNumero());
+		assertThat(paginaCalculo.getNumero(), equalTo(paginaDesejada));
+		assertThat(paginaCalculo.getToken().length(), equalTo(64));
 	}
 
 }

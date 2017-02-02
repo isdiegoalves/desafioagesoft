@@ -1,4 +1,4 @@
-package tokenwebcrawler;
+package br.diego.tokenwebcrawler;
 
 import javax.script.ScriptEngine;
 import javax.script.ScriptEngineManager;

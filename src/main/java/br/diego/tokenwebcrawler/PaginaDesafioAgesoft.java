@@ -1,4 +1,4 @@
-package tokenwebcrawler;
+package br.diego.tokenwebcrawler;
 
 import java.io.IOException;
 

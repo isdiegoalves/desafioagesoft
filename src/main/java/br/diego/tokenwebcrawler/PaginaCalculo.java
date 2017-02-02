@@ -1,7 +1,7 @@
-package tokenwebcrawler;
+package br.diego.tokenwebcrawler;
 
+import static br.diego.tokenwebcrawler.Matematico.resolverExpressaoMatematica;
 import static java.lang.String.valueOf;
-import static tokenwebcrawler.Matematico.resolverExpressaoMatematica;
 
 import java.io.IOException;
 
