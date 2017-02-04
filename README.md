@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/isdiegoalves/desafioagesoft.svg?branch=master)]
+
 ## [**Desafio**](https://agsoft.herokuapp.com)
 
 Descobrir de forma programática o token da página 1000
