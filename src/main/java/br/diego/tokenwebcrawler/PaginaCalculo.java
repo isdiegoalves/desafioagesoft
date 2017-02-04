@@ -22,6 +22,9 @@ public class PaginaCalculo {
 
 	public PaginaCalculo resolverQuestoesAteAPagina(int numero) {
 		
+		if (numero < 1)
+			throw new IllegalArgumentException("Não é permitido número de página menor que um!");
+		
 		while(getNumero() != numero) {
 			
 			final StringBuilder expressao = new StringBuilder();
@@ -54,7 +57,7 @@ public class PaginaCalculo {
 	}
 
 	public int getNumero() {
-		return Integer.valueOf(page.<HtmlHeading1>getFirstByXPath("//h1")
+		return Integer.parseInt(page.<HtmlHeading1>getFirstByXPath("//h1")
 				.asText()
 				.replaceAll("[^0-9]", ""));
 	}

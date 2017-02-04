@@ -1,5 +1,7 @@
 package br.diego.tokenwebcrawler;
 
+import static java.lang.Integer.parseInt;
+import static java.lang.System.getProperty;
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.MatcherAssert.assertThat;
 
@@ -10,7 +12,7 @@ public class TokenCrawlerTest {
 	@Test
 	public void dadoUmaOperacaoMatematicaQuandoResolver1000OperacoesEntaoExtrairValorToken() {
 
-		int paginaDesejada = 1000;
+		int paginaDesejada = parseInt(getProperty("pagina", "1000"));
 
 		PaginaDesafioAgesoft desafio = new PaginaDesafioAgesoft();
 		PaginaCalculo paginaCalculo = desafio.comecar().resolverQuestoesAteAPagina(paginaDesejada);
