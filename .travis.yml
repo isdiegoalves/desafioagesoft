@@ -4,5 +4,4 @@ jdk:
   - oraclejdk8
 env:
   - paginaDesejada=100
-script:
- - mvn test -Dsurefire.useFile=false
+script: mvn test -Dsurefire.useFile=false
