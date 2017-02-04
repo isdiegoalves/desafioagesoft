@@ -12,7 +12,7 @@ public class TokenCrawlerTest {
 	@Test
 	public void dadoUmaOperacaoMatematicaQuandoResolver1000OperacoesEntaoExtrairValorToken() {
 
-		int paginaDesejada = parseInt(getProperty("pagina", "1000"));
+		int paginaDesejada = parseInt(getProperty("pagina", "10"));
 
 		PaginaDesafioAgesoft desafio = new PaginaDesafioAgesoft();
 		PaginaCalculo paginaCalculo = desafio.comecar().resolverQuestoesAteAPagina(paginaDesejada);
