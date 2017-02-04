@@ -10,7 +10,7 @@ public class TokenCrawlerTest {
 	@Test
 	public void dadoUmaOperacaoMatematicaQuandoResolver1000OperacoesEntaoExtrairValorToken() {
 
-		int paginaDesejada = 100;
+		int paginaDesejada = 1000;
 
 		PaginaDesafioAgesoft desafio = new PaginaDesafioAgesoft();
 		PaginaCalculo paginaCalculo = desafio.comecar().resolverQuestoesAteAPagina(paginaDesejada);
