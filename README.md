@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/isdiegoalves/desafioagesoft.svg?branch=master)]
+[![Build Status](https://travis-ci.org/isdiegoalves/desafioagesoft.svg?branch=master)](https://travis-ci.org/isdiegoalves/desafioagesoft)
 
 ## [**Desafio**](https://agsoft.herokuapp.com)
 
