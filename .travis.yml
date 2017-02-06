@@ -2,6 +2,8 @@ sudo: false
 language: java
 jdk:
   - oraclejdk8
-env:
-  - paginaDesejada=100
 script: mvn test -Dsurefire.useFile=false
+before_install:
+  - pip install --user codecov
+after_success:
+  - codecov
