@@ -14,8 +14,7 @@ public class TokenCrawlerTest {
 
 		int paginaDesejada = parseInt(getProperty("pagina", "10"));
 
-		PaginaDesafioAgesoft desafio = new PaginaDesafioAgesoft();
-		PaginaCalculo paginaCalculo = desafio.comecar().resolverQuestoesAteAPagina(paginaDesejada);
+		PaginaCalculo paginaCalculo = PaginaDesafioAgesoft.comecar().resolverQuestoesAteAPagina(paginaDesejada);
 		
 		assertThat(paginaCalculo.getNumero(), equalTo(paginaDesejada));
 		assertThat(paginaCalculo.getToken().length(), equalTo(64));
