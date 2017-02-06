@@ -4,7 +4,7 @@ import javax.script.ScriptEngine;
 import javax.script.ScriptEngineManager;
 import javax.script.ScriptException;
 
-public abstract class Matematico {
+public final class Matematico {
 
 	private static ScriptEngine engine = new ScriptEngineManager().getEngineByName("JavaScript");
 
