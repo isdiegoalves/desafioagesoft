@@ -6,7 +6,7 @@ import com.gargoylesoftware.htmlunit.WebClient;
 import com.gargoylesoftware.htmlunit.html.HtmlPage;
 import com.gargoylesoftware.htmlunit.html.HtmlSubmitInput;
 
-public abstract class PaginaDesafioAgesoft {
+public final class PaginaDesafioAgesoft {
 
 	public static final PaginaCalculo comecar() {
 		try {
