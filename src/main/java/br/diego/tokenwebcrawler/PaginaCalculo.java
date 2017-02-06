@@ -43,6 +43,10 @@ public class PaginaCalculo {
 	}
 
 	private void enviar(Number resposta) {
+		
+		if (resposta == null)
+			throw new NullPointerException("resposta não pode ser null!");
+		
 		try {
 			page.<HtmlTextInput>getElementByName("captcha").setValueAttribute(valueOf(resposta));
 			HtmlSubmitInput btnSubmit = page.getFirstByXPath("//input[@type='submit']");

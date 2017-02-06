@@ -8,7 +8,7 @@ import com.gargoylesoftware.htmlunit.html.HtmlSubmitInput;
 
 public final class PaginaDesafioAgesoft {
 
-	public static final PaginaCalculo comecar() {
+	public final PaginaCalculo comecar() {
 		try {
 			HtmlPage index = new WebClient().getPage("https://agsoft.herokuapp.com");
 			HtmlSubmitInput botaoComecar = index.getFirstByXPath("//input[@type='submit']");
