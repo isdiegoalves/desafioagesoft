@@ -5,16 +5,25 @@ import static java.lang.System.getProperty;
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.MatcherAssert.assertThat;
 
+import org.junit.Before;
 import org.junit.Test;
 
 public class TokenCrawlerTest {
+
+	private PaginaCalculo paginaCalculo;
+
+	@Before
+	public void setUp() {
+		PaginaDesafioAgesoft desafio = new PaginaDesafioAgesoft();
+		paginaCalculo = desafio.comecar();
+	}
 
 	@Test
 	public void dadoUmaOperacaoMatematicaQuandoResolver1000OperacoesEntaoExtrairValorToken() {
 
 		int paginaDesejada = parseInt(getProperty("pagina", "10"));
 
-		PaginaCalculo paginaCalculo = PaginaDesafioAgesoft.comecar().resolverQuestoesAteAPagina(paginaDesejada);
+		paginaCalculo.resolverQuestoesAteAPagina(paginaDesejada);
 		
 		assertThat(paginaCalculo.getNumero(), equalTo(paginaDesejada));
 		assertThat(paginaCalculo.getToken().length(), equalTo(64));
