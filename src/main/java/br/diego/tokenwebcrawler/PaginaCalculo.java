@@ -5,6 +5,7 @@ import static java.lang.String.valueOf;
 
 import java.io.IOException;
 
+import com.gargoylesoftware.htmlunit.FailingHttpStatusCodeException;
 import com.gargoylesoftware.htmlunit.html.HtmlBold;
 import com.gargoylesoftware.htmlunit.html.HtmlHeading1;
 import com.gargoylesoftware.htmlunit.html.HtmlPage;
@@ -18,6 +19,15 @@ public class PaginaCalculo {
 
 	public PaginaCalculo(HtmlPage page) {
 		this.page = page;
+	}
+	
+	public final PaginaCalculo comecar() throws FailingHttpStatusCodeException {
+		try {
+			HtmlSubmitInput botaoComecar = page.getFirstByXPath("//input[@type='submit']");
+			return new PaginaCalculo(botaoComecar.click());
+		} catch (IOException e) {
+			throw new UnsupportedOperationException(e);
+		}
 	}
 
 	public PaginaCalculo resolverQuestoesAteAPagina(int numero) {
@@ -36,13 +46,13 @@ public class PaginaCalculo {
 
 			Number resposta = resolverExpressaoMatematica(valueOf(expressao));
 			
-			enviar(resposta);
+			page = enviar(resposta);
 		}
 		
 		return this;
 	}
 
-	private void enviar(Number resposta) {
+	private HtmlPage enviar(Number resposta) {
 		
 		if (resposta == null)
 			throw new NullPointerException("resposta não pode ser null!");
@@ -50,7 +60,7 @@ public class PaginaCalculo {
 		try {
 			page.<HtmlTextInput>getElementByName("captcha").setValueAttribute(valueOf(resposta));
 			HtmlSubmitInput btnSubmit = page.getFirstByXPath("//input[@type='submit']");
-			page = btnSubmit.click();
+			return btnSubmit.click();
 		} catch (IOException e) {
 			throw new UnsupportedOperationException(e);
 		}

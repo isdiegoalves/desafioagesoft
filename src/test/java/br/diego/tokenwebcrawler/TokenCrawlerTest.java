@@ -1,5 +1,6 @@
 package br.diego.tokenwebcrawler;
 
+import static br.diego.tokenwebcrawler.Pagina.agesoft;
 import static java.lang.Integer.parseInt;
 import static java.lang.System.getProperty;
 import static org.hamcrest.CoreMatchers.equalTo;
@@ -14,7 +15,7 @@ public class TokenCrawlerTest {
 
 	@Before
 	public void setUp() {
-		PaginaDesafioAgesoft desafio = new PaginaDesafioAgesoft();
+		PaginaDesafio desafio = new PaginaDesafio(agesoft());
 		paginaCalculo = desafio.comecar();
 	}
 

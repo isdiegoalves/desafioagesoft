@@ -1,5 +1,6 @@
 package br.diego.tokenwebcrawler;
 
+import static br.diego.tokenwebcrawler.Pagina.agesoft;
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.junit.Assert.fail;
@@ -11,23 +12,23 @@ import org.junit.Test;
 
 public class PaginaCalculoTest {
 	
-	private PaginaCalculo paginaCalculo;
+	private PaginaCalculo problema;
 
 	@Before
 	public void setUp() {
-		paginaCalculo = new PaginaDesafioAgesoft().comecar();
+		problema = new PaginaDesafio(agesoft()).comecar();
 	}
 	
 	@Test(expected=IllegalArgumentException.class)
 	public void dadoUmNumeroNegativoQuandoResolverQuestoesEntaoLancarNullPointerException() {
 		
-		paginaCalculo.resolverQuestoesAteAPagina(-1);
+		problema.resolverQuestoesAteAPagina(-1);
 	}
 	
 	@Test
 	public void dadoUmNumeroPositivoQuandoResolverQuestoesEntaoRetornarResultado() {
 		
-		PaginaCalculo resultado = paginaCalculo.resolverQuestoesAteAPagina(1);
+		PaginaCalculo resultado = problema.resolverQuestoesAteAPagina(1);
 		
 		assertThat(resultado.getNumero(), equalTo(1));
 		assertThat(resultado.getToken().length(), equalTo(64));
@@ -36,9 +37,9 @@ public class PaginaCalculoTest {
 	@Test(expected=NullPointerException.class)
 	public void dadoUmaRespostaNulaQuandoEnviarRespostaEntaoLancarNullPointerException() {
 		try {
-			Method method = paginaCalculo.getClass().getDeclaredMethod("enviar", Number.class);
+			Method method = problema.getClass().getDeclaredMethod("enviar", Number.class);
 			method.setAccessible(true);
-			method.invoke(paginaCalculo, (Number)null);
+			method.invoke(problema, (Number)null);
 		} catch (Exception e) {
 			if(NullPointerException.class.isAssignableFrom(e.getCause().getClass()))
 				throw new NullPointerException(e.getMessage());

@@ -1,10 +1,8 @@
 package br.diego.tokenwebcrawler;
 
 import static org.hamcrest.CoreMatchers.equalTo;
+import static org.hamcrest.MatcherAssert.assertThat;
 
-import java.lang.reflect.Constructor;
-
-import org.hamcrest.MatcherAssert;
 import org.junit.Test;
 
 public class MatematicoTest {
@@ -16,7 +14,7 @@ public class MatematicoTest {
 		
 		Number resultado = Matematico.resolverExpressaoMatematica(expressao);
 		
-		MatcherAssert.assertThat(resultado, equalTo(2));
+		assertThat(resultado, equalTo(2));
 	}
 	
 	@Test(expected=UnsupportedOperationException.class)
@@ -26,12 +24,11 @@ public class MatematicoTest {
 		
 		Number resultado = Matematico.resolverExpressaoMatematica(expressao);
 		
-		MatcherAssert.assertThat(resultado, equalTo(2));
+		assertThat(resultado, equalTo(2));
 	}
 	
 	@Test
 	public void dadoUmConstrutorPublicoEntaoInstanciar() throws Exception {
-		Constructor<Matematico> constructor = Matematico.class.getDeclaredConstructor();
-        constructor.newInstance();
+		new Matematico();
 	}
 }

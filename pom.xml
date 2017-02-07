@@ -29,7 +29,7 @@
 			<version>${version.junit}</version>
 			<scope>test</scope>
 		</dependency>
-		
+
 		<dependency>
 			<groupId>org.mockito</groupId>
 			<artifactId>mockito-all</artifactId>
@@ -45,6 +45,11 @@
 				<groupId>org.jacoco</groupId>
 				<artifactId>jacoco-maven-plugin</artifactId>
 				<version>0.7.8</version>
+				<configuration>
+					<excludes>
+						<exclude>**com.steadystate*</exclude>
+					</excludes>
+				</configuration>
 				<executions>
 					<execution>
 						<goals>
