@@ -7,12 +7,12 @@ import com.gargoylesoftware.htmlunit.WebClient;
 import com.gargoylesoftware.htmlunit.html.HtmlPage;
 
 public class Pagina {
-
-	public static HtmlPage agesoft() throws UnsupportedOperationException {
+	
+	public static HtmlPage html(String url) throws IllegalArgumentException {
 		try {
-			return new WebClient().getPage("https://agsoft.herokuapp.com");
-		} catch (FailingHttpStatusCodeException | IOException e) {
-			throw new UnsupportedOperationException(e);
+			return  new WebClient().getPage(url);
+		} catch (IOException | FailingHttpStatusCodeException e) {
+			throw new IllegalArgumentException(e);
 		}
 	}
 }

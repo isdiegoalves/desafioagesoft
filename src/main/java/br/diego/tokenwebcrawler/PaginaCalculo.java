@@ -1,11 +1,9 @@
 package br.diego.tokenwebcrawler;
 
-import static br.diego.tokenwebcrawler.Matematico.resolverExpressaoMatematica;
 import static java.lang.String.valueOf;
 
 import java.io.IOException;
 
-import com.gargoylesoftware.htmlunit.FailingHttpStatusCodeException;
 import com.gargoylesoftware.htmlunit.html.HtmlBold;
 import com.gargoylesoftware.htmlunit.html.HtmlHeading1;
 import com.gargoylesoftware.htmlunit.html.HtmlPage;
@@ -16,24 +14,18 @@ import com.gargoylesoftware.htmlunit.html.HtmlTextInput;
 public class PaginaCalculo {
 
 	private HtmlPage page;
+	Matematico matematico;
 
 	public PaginaCalculo(HtmlPage page) {
 		this.page = page;
+		this.matematico = new Matematico();
 	}
 	
-	public final PaginaCalculo comecar() throws FailingHttpStatusCodeException {
-		try {
-			HtmlSubmitInput botaoComecar = page.getFirstByXPath("//input[@type='submit']");
-			return new PaginaCalculo(botaoComecar.click());
-		} catch (IOException e) {
-			throw new UnsupportedOperationException(e);
-		}
-	}
-
 	public PaginaCalculo resolverQuestoesAteAPagina(int numero) {
 		
 		if (numero < 1)
 			throw new IllegalArgumentException("Não é permitido número de página menor que um!");
+		
 		
 		while(getNumero() != numero) {
 			
@@ -44,7 +36,7 @@ public class PaginaCalculo {
 			.map(HtmlSpan::getFirstChild)
 			.forEach(expressao::append);
 
-			Number resposta = resolverExpressaoMatematica(valueOf(expressao));
+			Number resposta = matematico.resolverProblema(valueOf(expressao));
 			
 			page = enviar(resposta);
 		}

@@ -4,11 +4,11 @@ import javax.script.ScriptEngine;
 import javax.script.ScriptEngineManager;
 import javax.script.ScriptException;
 
-public final class Matematico {
+public class Matematico {
 
 	private static ScriptEngine engine = new ScriptEngineManager().getEngineByName("JavaScript");
 
-	public static final Number resolverExpressaoMatematica(String expressaoMatematica) {
+	public final Number resolverProblema(String expressaoMatematica) {
 		try {
 			return (Number) engine.eval(expressaoMatematica);
 		} catch (ScriptException e) {

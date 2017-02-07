@@ -1,6 +1,6 @@
 package br.diego.tokenwebcrawler;
 
-import static br.diego.tokenwebcrawler.Pagina.agesoft;
+import static br.diego.tokenwebcrawler.Pagina.html;
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.junit.Assert.fail;
@@ -16,7 +16,7 @@ public class PaginaCalculoTest {
 
 	@Before
 	public void setUp() {
-		problema = new PaginaDesafio(agesoft()).comecar();
+		problema = new PaginaDesafio(html("https://agsoft.herokuapp.com")).comecar();
 	}
 	
 	@Test(expected=IllegalArgumentException.class)
