@@ -5,7 +5,7 @@ import java.io.IOException;
 import com.gargoylesoftware.htmlunit.html.HtmlPage;
 import com.gargoylesoftware.htmlunit.html.HtmlSubmitInput;
 
-public final class PaginaDesafio {
+public class PaginaDesafio {
 	
 	private HtmlPage page;
 	

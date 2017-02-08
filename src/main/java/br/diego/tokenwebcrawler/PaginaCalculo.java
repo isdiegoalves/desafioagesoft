@@ -14,7 +14,7 @@ import com.gargoylesoftware.htmlunit.html.HtmlTextInput;
 public class PaginaCalculo {
 
 	private HtmlPage page;
-	Matematico matematico;
+	private Matematico matematico;
 
 	public PaginaCalculo(HtmlPage page) {
 		this.page = page;
@@ -23,11 +23,11 @@ public class PaginaCalculo {
 	
 	public PaginaCalculo resolverQuestoesAteAPagina(int numero) {
 		
-		if (numero < 1)
+		if (numero < 1) {
 			throw new IllegalArgumentException("Não é permitido número de página menor que um!");
+		}
 		
-		
-		while(getNumero() != numero) {
+		while (getNumero() != numero) {
 			
 			final StringBuilder expressao = new StringBuilder();
 
@@ -46,8 +46,9 @@ public class PaginaCalculo {
 
 	private HtmlPage enviar(Number resposta) {
 		
-		if (resposta == null)
+		if (resposta == null) {
 			throw new NullPointerException("resposta não pode ser null!");
+		}
 		
 		try {
 			page.<HtmlTextInput>getElementByName("captcha").setValueAttribute(valueOf(resposta));

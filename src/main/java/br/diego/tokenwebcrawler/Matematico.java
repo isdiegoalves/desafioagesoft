@@ -8,7 +8,7 @@ public class Matematico {
 
 	private static ScriptEngine engine = new ScriptEngineManager().getEngineByName("JavaScript");
 
-	public final Number resolverProblema(String expressaoMatematica) {
+	public Number resolverProblema(String expressaoMatematica) {
 		try {
 			return (Number) engine.eval(expressaoMatematica);
 		} catch (ScriptException e) {
